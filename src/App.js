@@ -1,57 +1,3 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import React from 'react';
-// import {
-//   makeStyles
-// } from '@material-ui/core/styles';
-// import TextField from '@material-ui/core/TextField';
-
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     '& > *': {
-//       margin: theme.spacing(1),
-//       width: 200,
-//     },
-//   },
-// }));
-
-// export default function BasicTextFields() {
-//   const classes = useStyles();
-
-//   return ( 
-//     <form className = {classes.root} noValidate autoComplete = "off">
-//         <TextField id = "standard-basic" label = "Standard" />
-//         <TextField id = "filled-basic" label = "Filled" variant = "filled" />
-//         <TextField id = "outlined-basic" label = "Outlined" variant = "outlined" />
-//     </form>
-//   );
-// }
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -61,6 +7,7 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -79,15 +26,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Conditions d\'utilisation', 'Votre Profil', 'Votre Véhicule', 'Choix de Protections', 'Résultats'];
 }
 
 function getStepContent(step) {
+  
   switch (step) {
     case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
+      return (
+        <form noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Name" />
+          <TextField id="standard-basic" label="Age" />
+          <TextField id="standard-basic" label="Gender" />
+          <TextField id="standard-basic" label="Marital status" />
+        </form>
+      );
     case 1:
       return 'An ad group contains one or more ads which target a shared set of keywords.';
     case 2:
