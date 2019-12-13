@@ -1,9 +1,12 @@
 
 import React from 'react';
-// import Profil from './Profif';
 
+const genres = ['Genre', 'Homme', 'Femme', 'Autre'];
+const ages = ['Tranche d\'âge', '15-20', '21-25', '26-30', '31-35', '36-40', '41-55', '56-70', '71+'];
+const experiences = ['Experience de conduite', '- 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
+const sinistres = ['Sinistres aucours des 5 dernières années', '0', '1', '2', '3+']
 
-class Basic extends React.Component {
+class Profil extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +34,7 @@ class Basic extends React.Component {
 
   render() {
     return (
-      // <Profil></Profil>
+
       <div className="container mt-5 d-flex justify-content-center">
 
         <div className="col-md-6 border rounded py-5">
@@ -41,7 +44,8 @@ class Basic extends React.Component {
 
           <form className="px-5 mt-5" onSubmit={this.handleSubmit}>
 
-            <div class="form-group row. justify-content-between.">
+            {/* Prenom */}
+            <div class="form-group">
               <input
                 type="text"
                 name="prenom"
@@ -49,6 +53,7 @@ class Basic extends React.Component {
                 placeholder="Prenom" className="form-control" />
             </div>
 
+            {/* Nom */}
             <div class="form-group">
               <input
                 type="text"
@@ -57,49 +62,51 @@ class Basic extends React.Component {
                 placeholder="Nom" className="form-control" />
             </div>
 
+            {/* Genre */}
             <div class="form-group">
               <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
-                <option value="0">Genre</option>
-                <option value="1">Homme</option>
-                <option value="2">Femme</option>
-                <option value="3">Autre</option>
+                {genres.map(genre => (
+                  <option key={genre} value={genre}>
+                    {genre}
+                  </option>
+                ))}
               </select>
             </div>
 
+            {/* Tranche d'Age */}
             <div class="form-group" onChange={event => { this.setState({ age: event.target.value }) }}>
               <select className="form-control">
-                <option value="0">Tranche d'âge</option>
-                <option value="1">15-20</option>
-                <option value="2">21-25</option>
-                <option value="3">26-30</option>
-                <option value="4">31-35</option>
-                <option value="5">36-40</option>
-                <option value="6">41-55</option>
-                <option value="7">56-70</option>
-                <option value="8">71+</option>
+                {ages.map(age => (
+                  <option key={age} value={age}>
+                    {age}
+                  </option>
+                ))}
               </select>
             </div>
 
+            {/* Experience de conduite */}
             <div class="form-group">
               <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
-                <option value="0">Experience de conduite</option>
-                <option value="1">- 24 Mois</option>
-                <option value="2">2 à 5 ans</option>
-                <option value="3">6 à 9 ans</option>
-                <option value="4">10 ans +</option>
+                {experiences.map(experience => (
+                  <option key={experience} value={experience}>
+                    {experience}
+                  </option>
+                ))}
               </select>
             </div>
 
+            {/* Sinistres aucours des 5 dernières années */}
             <div class="form-group">
-              <select className="col-5. form-control" onChange={event => { this.setState({ sinistres: event.target.value }) }}>
-                <option value="0">Sinistres aucours des 5 dernières années</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3+</option>
+              <select className="form-control" onChange={event => { this.setState({ sinistres: event.target.value }) }}>
+                {sinistres.map(sinistre => (
+                  <option key={sinistre} value={sinistre}>
+                    {sinistre}
+                  </option>
+                ))}
               </select>
             </div>
 
+            {/* Code Postal */}
             <div class="form-group">
               <input
                 type="text"
@@ -122,4 +129,4 @@ class Basic extends React.Component {
   }
 }
 
-export default Basic;
+export default Profil;

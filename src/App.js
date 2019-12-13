@@ -1,9 +1,10 @@
 import React from "react";
-// import Basic from "./components/Basic";
-import Profil from "./components/Profil"
+import Vehicule from "./components/Vehicule";
+// import Profil from "./components/Profil"
 
 const App = () => {
-  return <Profil></Profil>;
+  // return <Profil></Profil>;
+  return <Vehicule></Vehicule>;
 };
 
 export default App;
