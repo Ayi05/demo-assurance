@@ -1,125 +1,96 @@
 
 import React from 'react';
-// import Profil from './Profif';
+import { makeStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
+import Profil from './Profil';
+import Vehicule from './Vehicule';
+import Conditions from './Conditions';
 
-class Basic extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            prenom: '',
-            nom: '',
-            genre: '',
-            age: '',
-            experience: '',
-            sinistres: '',
-            cp: '',
-        };
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+  },
+  backButton: {
+    marginRight: theme.spacing(1),
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+}));
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({ prenom: event.target.value });
-    }
-
-    handleSubmit(event) {
-        alert('Prénom : ' + this.state.prenom + '\nNom : ' + this.state.nom + '\nGenre : ' + this.state.genre + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nSinitres : ' + this.state.sinistres + '\nCode Postal : ' + this.state.cp);
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            // <Profil></Profil>
-            <div className="container mt-5 d-flex justify-content-center">
-
-                <div className="col-md-6 border rounded py-5">
-                    <div className="row justify-content-center">
-                        <h2>Votre Profil</h2>
-                    </div>
-
-                    <form className="px-5 mt-5" onSubmit={this.handleSubmit}>
-
-                        <div class="form-group row. justify-content-between.">
-                            <input
-                                type="text"
-                                name="prenom"
-                                onChange={event => { this.setState({ prenom: event.target.value }) }}
-                                placeholder="Prenom" className="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <input
-                                type="text"
-                                name="nom"
-                                onChange={event => { this.setState({ nom: event.target.value }) }}
-                                placeholder="Nom" className="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
-                                <option value="0">Genre</option>
-                                <option value="1">Homme</option>
-                                <option value="2">Femme</option>
-                                <option value="3">Autre</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" onChange={event => { this.setState({ age: event.target.value }) }}>
-                            <select className="form-control">
-                                <option value="0">Tranche d'âge</option>
-                                <option value="1">15-20</option>
-                                <option value="2">21-25</option>
-                                <option value="3">26-30</option>
-                                <option value="4">31-35</option>
-                                <option value="5">36-40</option>
-                                <option value="6">41-55</option>
-                                <option value="7">56-70</option>
-                                <option value="8">71+</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
-                                <option value="0">Experience de conduite</option>
-                                <option value="1">- 24 Mois</option>
-                                <option value="2">2 à 5 ans</option>
-                                <option value="3">6 à 9 ans</option>
-                                <option value="4">10 ans +</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <select className="col-5. form-control" onChange={event => { this.setState({ sinistres: event.target.value }) }}>
-                                <option value="0">Sinistres aucours des 5 dernières années</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3+</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <input
-                                type="text"
-                                onChange={event => { this.setState({ cp: event.target.value }) }}
-                                className="form-control form-control-md" placeholder="Code Postal" />
-                        </div>
-
-                        <div className="row justify-content-center mt-5">
-                            <button class="btn btn-secondary mx-2" type="reset">Effacer</button>
-
-                            <button class="btn btn-info mx-2" type="submit">Afficher</button>
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div >
-        );
-    }
+function getSteps() {
+  return ['Conditions', 'Vous', 'Votre Véhicule', 'Protections', 'Résultats'];
 }
 
-export default Basic;
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return <Conditions></Conditions>;
+    case 1:
+      return <Profil></Profil>;
+    case 2:
+      return <Vehicule></Vehicule>;
+    default:
+      return 'Unknown stepIndex';
+  }
+}
+
+export default function HorizontalLabelPositionBelowStepper() {
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps = getSteps();
+
+  const handleNext = () => {
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep(prevActiveStep => prevActiveStep - 1);
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Stepper activeStep={activeStep} alternativeLabel>
+        {steps.map(label => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      <div>
+        {activeStep === steps.length ? (
+          <div>
+            <Typography className={classes.instructions}>All steps completed</Typography>
+            <Button onClick={handleReset}>Reset</Button>
+          </div>
+        ) : (
+          <div>
+            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            <div>
+              <Button
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                className={classes.backButton}
+              >
+                Back
+              </Button>
+              <Button variant="contained" color="primary" onClick={handleNext}>
+                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
