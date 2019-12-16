@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const annees = ['Année', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009'];
-const marques = ['Marque', 'Audi', 'BMW', 'Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda', 'Mitsubishi', 'Nissan', 'Porshe', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'VolksWagen', 'Volvo'];
+const marques = ['Marque', 'Audi', 'BMW', 'Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda'];
 const modeles = ['Modèle', 'aaaa', 'bbbb', 'cccc', 'dddd', 'eeee'];
 const kmas = ['Km par année', 'moins de 10 000 km', '10 001 à 20 000 km', '20 001 à 35 000 km', 'plus de 35 000 km']
 
