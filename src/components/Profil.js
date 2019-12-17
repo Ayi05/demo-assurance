@@ -1,5 +1,7 @@
 
 import React from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 const genres = ['Genre', 'Homme', 'Femme', 'Autre'];
 const ages = ['Tranche d\'âge', '15-20', '21-25', '26-30', '31-35', '36-40', '41-55', '56-70', '71+'];
@@ -45,37 +47,44 @@ class Profil extends React.Component {
           <form className="px-5 mt-5" onSubmit={this.handleSubmit}>
 
             {/* Prenom */}
-            <div class="form-group">
-              <input
+            <div class="form-group row justify-content-around">
+              {/* <input
                 type="text"
                 name="prenom"
                 onChange={event => { this.setState({ prenom: event.target.value }) }}
-                placeholder="Prenom" className="form-control" />
+                placeholder="Prenom" className="form-control col-6 mx-1." /> */}
+
+                <TextField id="standard-basic" label="Prénom" onChange={event => { this.setState({ prenom: event.target.value }) }}/>
+
+                {/* <input
+                type="text"
+                name="nom"
+                onChange={event => { this.setState({ nom: event.target.value }) }}
+                placeholder="Nom" className="form-control col-6 mx-1." /> */}
+
+                <TextField id="standard-basic" label="Nom" onChange={event => { this.setState({ nom: event.target.value }) }}/>
             </div>
 
             {/* Nom */}
-            <div class="form-group">
+            {/* <div class="form-group">
               <input
                 type="text"
                 name="nom"
                 onChange={event => { this.setState({ nom: event.target.value }) }}
-                placeholder="Nom" className="form-control" />
-            </div>
+                placeholder="Nom" className="form-control col-6" />
+            </div> */}
 
             {/* Genre */}
-            <div class="form-group">
-              <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
+            <div class="form-group row justify-content-between">
+              <select className="form-control col-6" onChange={event => { this.setState({ genre: event.target.value }) }}>
                 {genres.map(genre => (
                   <option key={genre} value={genre}>
                     {genre}
                   </option>
                 ))}
               </select>
-            </div>
 
-            {/* Tranche d'Age */}
-            <div class="form-group" onChange={event => { this.setState({ age: event.target.value }) }}>
-              <select className="form-control">
+              <select className="form-control col-6" onChange={event => { this.setState({ age: event.target.value }) }}>
                 {ages.map(age => (
                   <option key={age} value={age}>
                     {age}
@@ -84,20 +93,28 @@ class Profil extends React.Component {
               </select>
             </div>
 
+            {/* Tranche d'Age */}
+            {/* <div class="form-group">
+              <select className="form-control" onChange={event => { this.setState({ age: event.target.value }) }}>
+                {ages.map(age => (
+                  <option key={age} value={age}>
+                    {age}
+                  </option>
+                ))}
+              </select>
+            </div> */}
+
             {/* Experience de conduite */}
-            <div class="form-group">
-              <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
+            <div class="form-group row justify-content-between">
+              <select className="form-control col-6" onChange={event => { this.setState({ experience: event.target.value }) }}>
                 {experiences.map(experience => (
                   <option key={experience} value={experience}>
                     {experience}
                   </option>
                 ))}
               </select>
-            </div>
 
-            {/* Sinistres aucours des 5 dernières années */}
-            <div class="form-group">
-              <select className="form-control" onChange={event => { this.setState({ sinistres: event.target.value }) }}>
+              <select className="form-control col-6" onChange={event => { this.setState({ sinistres: event.target.value }) }}>
                 {sinistres.map(sinistre => (
                   <option key={sinistre} value={sinistre}>
                     {sinistre}
@@ -106,12 +123,24 @@ class Profil extends React.Component {
               </select>
             </div>
 
-            {/* Code Postal */}
+            {/* Sinistres aucours des 5 dernières années */}
             <div class="form-group">
-              <input
+              {/* <select className="form-control" onChange={event => { this.setState({ sinistres: event.target.value }) }}>
+                {sinistres.map(sinistre => (
+                  <option key={sinistre} value={sinistre}>
+                    {sinistre}
+                  </option>
+                ))}
+              </select> */}
+            </div>
+
+            {/* Code Postal */}
+            <div class="form-group row">
+              {/* <input
                 type="text"
                 onChange={event => { this.setState({ cp: event.target.value }) }}
-                className="form-control form-control-md" placeholder="Code Postal" />
+                className="form-control col-6 form-control-md." placeholder="Code Postal" /> */}
+              <TextField id="standard-basic" label="Code Postal" onChange={event => { this.setState({ cp: event.target.value }) }}/>
             </div>
 
             <div className="row justify-content-center mt-5">
