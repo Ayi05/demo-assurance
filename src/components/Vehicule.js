@@ -87,7 +87,7 @@ class Vehicule extends React.Component {
               </select>
             </div>
 
-            {/* Sinistres aucours des 5 dernières années */}
+            {/* Kilomètres par années */}
             <div class="form-group">
               <select className="col-5. form-control" onChange={event => { this.setState({ kma: event.target.value }) }}>
                 {kmas.map(kma => (
@@ -96,14 +96,6 @@ class Vehicule extends React.Component {
                   </option>
                 ))}
               </select>
-            </div>
-
-            {/* Code Postal */}
-            <div class="form-group">
-              <input
-                type="text"
-                onChange={event => { this.setState({ cp: event.target.value }) }}
-                className="form-control form-control-md" placeholder="Code Postal" />
             </div>
 
             <div className="row justify-content-center mt-5">

@@ -1,10 +1,10 @@
 
 import React from 'react';
 // import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 
 const genres = ['Genre', 'Homme', 'Femme', 'Autre'];
-const ages = ['Tranche d\'âge', '15-20', '21-25', '26-30', '31-35', '36-40', '41-55', '56-70', '71+'];
+const ages = ['Àge', '15-20', '21-25', '26-30', '31-35', '36-40', '41-55', '56-70', '71+'];
 const experiences = ['Experience de conduite', '- 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
 const sinistres = ['Sinistres aucours des 5 dernières années', '0', '1', '2', '3+']
 
@@ -37,21 +37,23 @@ class Profil extends React.Component {
   render() {
     return (
 
-      <div className="container mt-5 d-flex justify-content-center">
+      <div className="container mt-2 d-flex justify-content-center">
 
-        <div className="col-md-6 border rounded py-5">
+        <div className="col-md-6 border rounded py-3">
           <div className="row justify-content-center">
             <h2>Votre Profil</h2>
           </div>
 
-          <form className="px-5 mt-5" onSubmit={this.handleSubmit}>
+          <form className="px-5 mt-2" onSubmit={this.handleSubmit}>
 
             <div class="form-group row justify-content-around">
               {/* Prenom */}
-              <TextField id="standard-basic" label="Prénom" onChange={event => { this.setState({ prenom: event.target.value }) }} />
+              {/* <TextField id="standard-basic" label="Prénom" onChange={event => { this.setState({ prenom: event.target.value }) }} /> */}
+              <input type="text" placeholder="Prénom" className="form-control col-6" onChange={event => { this.setState({ prenom: event.target.value }) }} />
 
               {/* Nom */}
-              <TextField id="standard-basic" label="Nom" onChange={event => { this.setState({ nom: event.target.value }) }} />
+              {/* <TextField id="standard-basic" label="Nom" onChange={event => { this.setState({ nom: event.target.value }) }} /> */}
+              <input type="text" placeholder="Nom" className="form-control col-6" onChange={event => { this.setState({ nom: event.target.value }) }} />
             </div>
 
             <div class="form-group row justify-content-between">
@@ -96,7 +98,8 @@ class Profil extends React.Component {
 
             {/* Code Postal */}
             <div class="form-group row">
-              <TextField id="standard-basic" label="Code Postal" onChange={event => { this.setState({ cp: event.target.value }) }} />
+              {/* <TextField id="standard-basic" label="Code Postal" onChange={event => { this.setState({ cp: event.target.value }) }} /> */}
+              <input type="text" placeholder="Code Postal" className="form-control col-6" onChange={event => { this.setState({ cp: event.target.value }) }} />
             </div>
 
             <div className="row justify-content-center mt-5">
