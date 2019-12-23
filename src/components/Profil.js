@@ -18,6 +18,7 @@ class Profil extends React.Component {
       age: '',
       experience: '',
       sinistres: '',
+      tel: '',
       cp: '',
     };
 
@@ -30,7 +31,7 @@ class Profil extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Prénom : ' + this.state.prenom + '\nNom : ' + this.state.nom + '\nGenre : ' + this.state.genre + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nSinitres : ' + this.state.sinistres + '\nCode Postal : ' + this.state.cp);
+    alert('Prénom : ' + this.state.prenom + '\nNom : ' + this.state.nom + '\nGenre : ' + this.state.genre + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nSinitres : ' + this.state.sinistres + '\nTéléphone : ' + this.state.tel + '\nCode Postal : ' + this.state.cp);
     event.preventDefault();
   }
 
@@ -41,7 +42,7 @@ class Profil extends React.Component {
 
         <div className="col-md-6 border rounded py-3">
           <div className="row justify-content-center">
-            <h2>Votre Profil</h2>
+            <h2>Conducteur</h2>
           </div>
 
           <form className="px-5 mt-2" onSubmit={this.handleSubmit}>
@@ -99,6 +100,7 @@ class Profil extends React.Component {
             {/* Code Postal */}
             <div class="form-group row">
               {/* <TextField id="standard-basic" label="Code Postal" onChange={event => { this.setState({ cp: event.target.value }) }} /> */}
+              <input type="phone" placeholder="Telephone" className="form-control col-6" onChange={event => { this.setState({ tel: event.target.value }) }} />
               <input type="text" placeholder="Code Postal" className="form-control col-6" onChange={event => { this.setState({ cp: event.target.value }) }} />
             </div>
 

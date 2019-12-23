@@ -36,14 +36,14 @@ class Vehicule extends React.Component {
   render() {
     return (
 
-      <div className="container mt-5 d-flex justify-content-center">
+      <div className="container mt-2 d-flex justify-content-center">
 
-        <div className="col-md-6 border rounded py-5">
+        <div className="col-md-6 border rounded py-3">
           <div className="row justify-content-center">
-            <h2>Votre Véhicule</h2>
+            <h2>Véhicule</h2>
           </div>
 
-          <form className="px-5 mt-5" onSubmit={this.handleSubmit}>
+          <form className="px-5 mt-2" onSubmit={this.handleSubmit}>
 
             {/* Annee */}
             {/* <div class="form-group">
