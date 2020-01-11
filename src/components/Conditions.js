@@ -15,9 +15,11 @@ const Conditions = props => {
           {/* <button type="button" class="btn btn-outline-secondary btn-sm mx-2">
             Refuser
           </button> */}
-          <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
-            Accepter
+          <a href="/soumission">
+            <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
+              Accepter
             </button>
+          </a>
         </div>
       </div>
     </div>

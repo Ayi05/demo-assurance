@@ -1,5 +1,6 @@
 
 import React from 'react';
+import InfoV from './Data';
 
 
 const annees = ['Année', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009'];
@@ -11,13 +12,11 @@ class Vehicule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      annee: '',
-      marque: '',
-      modele: '',
-      kma: '',
-      experience: '',
-      sinistres: '',
-      cp: '',
+      InfoV,
+      // annee: '',
+      // marque: '',
+      // modele: '',
+      // kma: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +28,7 @@ class Vehicule extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Année : ' + this.state.annee + '\nMarque : ' + this.state.marque + '\nModèle : ' + this.state.modele + '\nKm/Année : ' + this.state.kma + '\nProtections : ' + this.state.experience + '\nFranchises : ' + this.state.sinistres);
+    alert('Année : ' + this.state.annee + '\nMarque : ' + this.state.marque + '\nModèle : ' + this.state.modele + '\nKm/Année : ' + this.state.kma);
     event.preventDefault();
   }
 

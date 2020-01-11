@@ -1,12 +1,12 @@
 import React from "react";
-import Basic from "./components/Basic"
+import Conditions from "./components/Conditions"
+import Soumission from "./components/Soumission";
 
 const App = () => {
   return (
     <div className="container mt-3">
-
-      <Basic></Basic>
-
+      <Conditions></Conditions>
+      <Soumission></Soumission>
     </div>
   );
 };
