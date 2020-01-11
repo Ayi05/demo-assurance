@@ -4,10 +4,10 @@ import InfoC from './Data';
 import InfoV from './Data';
 
 
-const genres = ['Choisir','M.', 'Mme'];
+const genres = ['M.', 'Mme', 'Nb'];
 const ages = ['Choisir', '15 à 20', '21 à 25', '26 à 30', '31 à 35', '36 à 40', '41 à 45', '46 à 50', '51 à 55', '56 à 60', '61 à 65', '66 et plus'];
 const experiences = ['Choisir', '- 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
-// const sinistres = ['Sinistres aucours des 5 dernières années', '0', '1', '2', '3+']
+const sinistres = ['Choisir', '0', '1', '2', '3+'];
 
 const annees = ['Année', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009'];
 const marques = ['Marque', 'Audi', 'BMW', 'Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda'];
@@ -31,7 +31,7 @@ class Soumission extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Prénom : ' + this.state.prenom + '\nNom : ' + this.state.nom + '\nGenre : ' + this.state.genre + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nSinitres : ' + this.state.sinistres + '\nTéléphone : ' + this.state.tel + '\nCode Postal : ' + this.state.cp + '\nAnnée : ' + this.state.annee + '\nMarque : ' + this.state.marque + '\nModèle : ' + this.state.modele + '\nKm/Année : ' + this.state.kma);
+    alert('Genre : ' + this.state.genre + '   Prénom : ' + this.state.prenom + '    Nom : ' + this.state.nom + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nSinitres : ' + this.state.sinistres + '\nTéléphone : ' + this.state.tel + '\nCode Postal : ' + this.state.cp + '\nAnnée : ' + this.state.annee + '\nMarque : ' + this.state.marque + '\nModèle : ' + this.state.modele + '\nKm/Année : ' + this.state.kma);
     event.preventDefault();
   }
 
@@ -46,32 +46,38 @@ class Soumission extends React.Component {
           
             <div className="row justify-content-around">
               
-              <div className="col-8 border rounded px-5 mt-2">
+              <div className="col-8 border rounded px-4 mt-2">
                 <h3>Conducteur</h3>
 
-                <label>Nom</label>
-                <div className="form-group row justify-content-between"> 
-                  {/* Genre */}
-                  <select className="form-control col-2" onChange={event => { this.setState({ genre: event.target.value }) }}>
+                <div className="form-group row justify-content-start"> 
+
+                  <div className="col-2">
+                  <label>Civilité</label>
+                  <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
                     {genres.map(genre => (
                       <option key={genre} value={genre}>
                         {genre}
                       </option>
                     ))}
                   </select>
+                  </div>
 
-                  {/* Prenom */}
-                  <input type="text" placeholder="Prénom" className="form-control col-5" onChange={event => { this.setState({ prenom: event.target.value }) }} />
+                  <div className="col-5">
+                  <label>Prénom</label>
+                  <input type="text" placeholder="Prénom" className="form-control" onChange={event => { this.setState({ prenom: event.target.value }) }} />
+                  </div>
 
-                  {/* Nom */}
-                  <input type="text" placeholder="Nom" className="form-control col-5" onChange={event => { this.setState({ nom: event.target.value }) }} />
+                  <div className="col-5">
+                  <label>Nom</label>
+                  <input type="text" placeholder="Nom" className="form-control" onChange={event => { this.setState({ nom: event.target.value }) }} />
+                  </div>
                 </div>
 
                 {/* <div className="form-group. row. justify-content-start."> */}
 
                   <div className="form-group row justify-content-start">
 
-                    <div className="col-5.">
+                    <div className="col-4">
                       <label>Tranche d'Âge</label>
                       <select className="form-control" onChange={event => { this.setState({ age: event.target.value }) }}>
                         {ages.map(age => (
@@ -82,8 +88,8 @@ class Soumission extends React.Component {
                       </select>
                     </div>
 
-                    <div className="col-5.">
-                      <label>Experience de Conduite</label>
+                    <div className="col-4">
+                      <label>Experience</label>
                       <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
                         {experiences.map(experience => (
                           <option key={experience} value={experience}>
@@ -93,21 +99,31 @@ class Soumission extends React.Component {
                       </select>
                     </div>
 
+                    <div className="col-4">
+                      <label>Sinistres</label>
+                      <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
+                        {sinistres.map(sinistre => (
+                          <option key={sinistre} value={sinistre}>
+                            {sinistre}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
                   </div>
                 {/* </div> */}
                     
-                <div className="form-group row">
-                      {/* <label>Experience de conduite</label> */}
-                      {/* <select className="form-control col-4" onChange={event => { this.setState({ experience: event.target.value }) }}>
-                        {experiences.map(experience => (
-                          <option key={experience} value={experience}>
-                            {experience}
-                          </option>
-                        ))}
-                      </select> */}
+                <div className="form-group row justify-content-start">
 
-                  <input type="text" placeholder="Code Postal" className="form-control col-4" onChange={event => { this.setState({ cp: event.target.value }) }} />
-                  <input type="phone" placeholder="Telephone" className="form-control col-4" onChange={event => { this.setState({ tel: event.target.value }) }} />
+                  <div className="col-4">
+                  <label>Code Postal</label>
+                  <input type="text" placeholder="A1B C2D" className="form-control" onChange={event => { this.setState({ cp: event.target.value }) }} />
+                  </div>
+
+                  <div className="col-4">
+                  <label>Telephone</label>
+                  <input type="phone" placeholder="123-456-7890" className="form-control" onChange={event => { this.setState({ tel: event.target.value }) }} />
+                  </div>
 
                 </div>
 
