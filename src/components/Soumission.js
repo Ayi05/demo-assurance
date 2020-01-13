@@ -7,7 +7,7 @@ import InfoV from './Data';
 const genres = ['M.', 'Mme', 'Nb'];
 const ages = ['Choisir', '15 à 20', '21 à 25', '26 à 30', '31 à 35', '36 à 40', '41 à 45', '46 à 50', '51 à 55', '56 à 60', '61 à 65', '66 et plus'];
 const experiences = ['Choisir', '- 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
-const sinistres = ['Choisir', '0', '1', '2', '3+'];
+// const sinistres = ['Choisir', '0', '1', '2', '3+'];
 
 const annees = ['Choisir', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009'];
 const marques = ['Choisir', 'Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda', 'Nissan'];
@@ -114,7 +114,7 @@ class Soumission extends React.Component {
 
                   <div className="form-group row justify-content-start">
 
-                    <label className="col">Tranche d'Âge
+                    <label className="col-4">Tranche d'Âge
                       <select className="form-control" onChange={event => { this.setState({ age: event.target.value }) }}>
                         {ages.map(age => (
                           <option key={age} value={age}>
@@ -124,7 +124,7 @@ class Soumission extends React.Component {
                       </select>
                     </label>
 
-                    <label className="col">Experience
+                    <label className="col-4">Experience
                       <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
                         {experiences.map(experience => (
                           <option key={experience} value={experience}>
@@ -134,7 +134,7 @@ class Soumission extends React.Component {
                       </select>
                     </label>
 
-                    <label className="col">Sinistres
+                    {/* <label className="col">Sinistres
                       <select className="form-control" onChange={event => { this.setState({ sinistre: event.target.value }) }}>
                         {sinistres.map(sinistre => (
                           <option key={sinistre} value={sinistre}>
@@ -142,7 +142,7 @@ class Soumission extends React.Component {
                           </option>
                         ))}
                       </select>
-                    </label>
+                    </label> */}
 
                   </div>
                     
