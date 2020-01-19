@@ -1,14 +1,29 @@
 
 import React from 'react';
 
+// import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import NativeSelect from '@material-ui/core/NativeSelect';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
+// import Radio from '@material-ui/core/Radio';
+// import RadioGroup from '@material-ui/core/RadioGroup';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormControl from '@material-ui/core/FormControl';
+// import FormLabel from '@material-ui/core/FormLabel';
+
 import '../index.css';
 import InfoC from './Data';
 import InfoV from './Data';
 
 
-const genres = ['M.', 'Mme', 'Nb'];
-const ages = ['Choisir', '15 à 20', '21 à 25', '26 à 30', '31 à 35', '36 à 40', '41 à 45', '46 à 50', '51 à 55', '56 à 60', '61 à 65', '66 et plus'];
-const experiences = ['Choisir', '- 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
+const genres = ['M.', 'Mme'];
+const ages = ['Tranche d\'Âge', '15 à 20', '21 à 25', '26 à 30', '31 à 35', '36 à 40', '41 à 45', '46 à 50', '51 à 55', '56 à 60', '61 à 65', '66 et plus'];
+const experiences = ['Experience', '- 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
 // const sinistres = ['Choisir', '0', '1', '2', '3+'];
 
 const annees = ['Choisir', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009'];
@@ -22,7 +37,7 @@ const hyundai = ['Choisir', 'Elantra', 'Elantra GT', 'Kona', 'Kona Electric', 'P
 const mazda = ['Choisir', 'CX-3', 'CX-5', 'CX-9', 'Mazda3', 'Mazda6'];
 const nissan = ['Choisir', 'Altima', 'Kicks', 'Micra', 'Murano', 'Quashqai', 'Rogue', 'Versa'];
 
-const p = 'Prénom';
+// const p = 'Prénom';
 
 class Soumission extends React.Component {
   constructor(props) {
@@ -94,31 +109,40 @@ class Soumission extends React.Component {
                   </h4>
                 </div>
                 
-                <div className="form-group row justify-content-start"> 
+                <div className="form-group row justify-content-start">
 
-                  <label className="col-2">Civilité
-                  <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
-                    {genres.map(genre => (
-                      <option key={genre} value={genre}>
-                        {genre}
-                      </option>
-                    ))}
-                  </select>
-                  </label>
+                  <div className="col">
+                    <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
+                      {genres.map(genre => (
+                        <option key={genre} value={genre}>
+                          {genre}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                  <label className="col-5">Prénom
-                    <input type="text" placeholder={p} className="form-control" onChange={event => { this.setState({ prenom: event.target.value }) }} />
-                  </label>
+                  {/* <FormControl size="small" variant="outlined">
+                    <Select onChange={event => { this.setState({ genre: event.target.value }) }}>
+                      {genres.map(genre => (
+                        <MenuItem key={genre} value={genre}>
+                          {genre}
+                        </MenuItem>
+                      ))}                      
+                    </Select>
+                  </FormControl> */}
 
-                  <label className="col-5">Nom
-                    <input type="text" placeholder="Nom" className="form-control" onChange={event => { this.setState({ nom: event.target.value }) }} />
-                  </label>
+                  <div className="col">
+                    <TextField size="small" label="Prénom" variant="outlined" onChange={event => { this.setState({ prenom: event.target.value }) }} />
+                  </div>
+
+                  <div className="col">
+                    <TextField size="small" label="Nom" variant="outlined" onChange={event => { this.setState({ nom: event.target.value }) }} />
+                  </div>                  
                 </div>
-
 
                   <div className="form-group row justify-content-start">
 
-                    <label className="col-4">Tranche d'Âge
+                    <div className="col-4">
                       <select className="form-control" onChange={event => { this.setState({ age: event.target.value }) }}>
                         {ages.map(age => (
                           <option key={age} value={age}>
@@ -126,9 +150,19 @@ class Soumission extends React.Component {
                           </option>
                         ))}
                       </select>
-                    </label>
+                    </div>
 
-                    <label className="col-4">Experience
+                    {/* <FormControl className="col-4" size="small">
+                      <Select variant="outlined" onChange={event => { this.setState({ age: event.target.value }) }}>
+                        {ages.map(age => (
+                          <MenuItem key={age} value={age}>
+                            {age}
+                          </MenuItem>
+                        ))}                      
+                      </Select>
+                    </FormControl> */}
+
+                    <div className="col-4">
                       <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
                         {experiences.map(experience => (
                           <option key={experience} value={experience}>
@@ -136,19 +170,25 @@ class Soumission extends React.Component {
                           </option>
                         ))}
                       </select>
-                    </label>
+                    </div>
 
                   </div>
                     
                 <div className="form-group row justify-content-start">
 
-                  <label className="col-4">Code Postal
+                  {/* <label className="col-4">Code Postal
                     <input type="text" placeholder="A1B C2D" className="form-control" onChange={event => { this.setState({ cp: event.target.value }) }} />
-                  </label>
+                  </label> */}
+                  <div className="col-4">
+                    <TextField size="small" label="Code Postal" variant="outlined" placeholder="A1B C2D" onChange={event => { this.setState({ cp: event.target.value }) }} />
+                  </div>                  
 
-                  <label className="col-4">Telephone
+                  {/* <label className="col-4">Telephone
                     <input type="phone" placeholder="123-456-7890" className="form-control" onChange={event => { this.setState({ tel: event.target.value }) }} />
-                  </label>
+                  </label> */}
+                  <div className="col-4">
+                    <TextField size="small" label="Téléphone" variant="outlined" placeholder="(123)-456-7890" onChange={event => { this.setState({ tel: event.target.value }) }} />
+                  </div>                  
 
                 </div>
 
