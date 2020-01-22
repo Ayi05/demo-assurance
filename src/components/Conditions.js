@@ -25,11 +25,16 @@ const Conditions = props => {
               Test
             </button>
           </a>
-          <a href="/soumission">
+          <a href="/Soumission">
             <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
-              soumission
+              Soumission
             </button>
-          </a>                    
+          </a>
+          <a href="/Formika">
+            <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
+              Formik
+            </button>
+          </a>
         </div>
       </div>
     </div>

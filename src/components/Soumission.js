@@ -16,7 +16,7 @@ const marques = ['Choisir', 'Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda', 'N
 const kmas = ['Choisir', 'moins de 10 000 km', '10 001 à 20 000 km', '20 001 à 35 000 km', 'plus de 35 000 km']
 
 const chevrolet = ['Choisir', 'Blazer', 'Camaro', 'Cruze', 'Equinox', 'Silverado', 'Spark'];
-const ford =  ['Choisir', 'EcoSport', 'Escape', 'Explorer', 'F-150', 'Fusion', 'Mustang'];
+const ford = ['Choisir', 'EcoSport', 'Escape', 'Explorer', 'F-150', 'Fusion', 'Mustang'];
 const honda = ['Choisir', 'Accord', 'Civic', 'Civic Coupe', 'CR-V', 'HR-V'];
 const hyundai = ['Choisir', 'Elantra', 'Elantra GT', 'Kona', 'Kona Electric', 'Palisade', 'Santa Fe', 'Sonata', 'Tucson'];
 const mazda = ['Choisir', 'CX-3', 'CX-5', 'CX-9', 'Mazda3', 'Mazda6'];
@@ -40,27 +40,27 @@ class Soumission extends React.Component {
   handleMarques(event) {
     switch (event.target.value) {
       case 'Chevrolet':
-        this.setState({modeles: chevrolet})
+        this.setState({ modeles: chevrolet })
         break;
 
       case 'Ford':
-        this.setState({modeles: ford})
+        this.setState({ modeles: ford })
         break;
 
       case 'Honda':
-        this.setState({modeles: honda})
+        this.setState({ modeles: honda })
         break;
 
       case 'Hyundai':
-        this.setState({modeles: hyundai})
+        this.setState({ modeles: hyundai })
         break;
 
       case 'Mazda':
-        this.setState({modeles: mazda})
+        this.setState({ modeles: mazda })
         break;
 
       case 'Nissan':
-        this.setState({modeles: nissan})
+        this.setState({ modeles: nissan })
         break;
 
       default:
@@ -71,7 +71,7 @@ class Soumission extends React.Component {
 
 
   handleSubmit(event) {
-    alert('Genre : ' + this.state.genre + '   Prénom : ' + this.state.prenom + '    Nom : ' + this.state.nom + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nTéléphone : ' + this.state.tel + '\nCode Postal : ' + this.state.cp + '\nMarque : ' + this.state.marque + '\nModèle : ' + this.state.modele + '\nAnnée : ' + this.state.annee  + '\nKm/Année : ' + this.state.kma);
+    alert('Genre : ' + this.state.genre + '   Prénom : ' + this.state.prenom + '    Nom : ' + this.state.nom + '\nÂge : ' + this.state.age + '\nExpérience : ' + this.state.experience + '\nTéléphone : ' + this.state.tel + '\nCode Postal : ' + this.state.cp + '\nMarque : ' + this.state.marque + '\nModèle : ' + this.state.modele + '\nAnnée : ' + this.state.annee + '\nKm/Année : ' + this.state.kma);
     event.preventDefault();
   }
 
@@ -84,26 +84,26 @@ class Soumission extends React.Component {
         <div className="py-3">
 
           <form className="" onSubmit={this.handleSubmit}>
-          
+
             <div>
               <div className="border rounded px-4 my-4">
                 <div className="my-3">
                   <h4 className="text-uppercase d-flex">
-                    <i className="fas fa-user-circle fa-2x my-2 m-0 text-info mr-2"></i>                    
+                    <i className="fas fa-user-circle fa-2x my-2 m-0 text-info mr-2"></i>
                     <span className="align-self-center">Conducteur</span>
                   </h4>
                 </div>
-                
-                <div className="form-group row justify-content-start"> 
+
+                <div className="form-group row justify-content-start">
 
                   <label className="col-2">Civilité
                   <select className="form-control" onChange={event => { this.setState({ genre: event.target.value }) }}>
-                    {genres.map(genre => (
-                      <option key={genre} value={genre}>
-                        {genre}
-                      </option>
-                    ))}
-                  </select>
+                      {genres.map(genre => (
+                        <option key={genre} value={genre}>
+                          {genre}
+                        </option>
+                      ))}
+                    </select>
                   </label>
 
                   <label className="col-5">Prénom
@@ -116,39 +116,39 @@ class Soumission extends React.Component {
                 </div>
 
 
-                  <div className="form-group row justify-content-start">
+                <div className="form-group row justify-content-start">
 
-                    <label className="col-4">Tranche d'Âge
+                  <label className="col-4">Tranche d'Âge
                       <select className="form-control" onChange={event => { this.setState({ age: event.target.value }) }}>
-                        {ages.map(age => (
-                          <option key={age} value={age}>
-                            {age}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+                      {ages.map(age => (
+                        <option key={age} value={age}>
+                          {age}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
 
-                    <label className="col-4">Experience
+                  <label className="col-4">Experience
                       <select className="form-control" onChange={event => { this.setState({ experience: event.target.value }) }}>
-                        {experiences.map(experience => (
-                          <option key={experience} value={experience}>
-                            {experience}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+                      {experiences.map(experience => (
+                        <option key={experience} value={experience}>
+                          {experience}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
 
-                  </div>
-                    
+                </div>
+
                 <div className="form-group row justify-content-start">
 
                   <label className="col-4">Code Postal
                     <input type="text" placeholder="A1B C2D" className="form-control" onChange={event => { this.setState({ cp: event.target.value }) }} />
                   </label>
 
-                  <label className="col-4">Telephone
+                  {/* <label className="col-4">Telephone
                     <input type="phone" placeholder="123-456-7890" className="form-control" onChange={event => { this.setState({ tel: event.target.value }) }} />
-                  </label>
+                  </label> */}
 
                 </div>
 
@@ -157,11 +157,11 @@ class Soumission extends React.Component {
               <div className="border rounded px-4 my-4">
                 <div className="mt-3">
                   <h4 className="text-uppercase d-flex">
-                    <i className="fas fa-car fa-2x my-2 m-0 text-info mr-2"></i>                    
+                    <i className="fas fa-car fa-2x my-2 m-0 text-info mr-2"></i>
                     <span className="align-self-center">Véhicule</span>
                   </h4>
                 </div>
-                
+
 
                 <div className="form-group row justify-content-start mt-4">
 
@@ -212,7 +212,7 @@ class Soumission extends React.Component {
 
               </div>
             </div>
-            
+
             <div className="row justify-content-center">
               {/* <button class="btn btn-secondary mx-2" type="reset">Effacer</button> */}
               <button className="btn btn-info mx-2" type="submit">Afficher</button>

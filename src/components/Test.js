@@ -5,6 +5,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+// import { Formik } from 'formik';
 
 
 const useStyles = makeStyles(theme => ({
@@ -49,29 +52,34 @@ const Test = () => {
 
   return (
     <div className="container mt-5 pt-5">
-  
-    <div className="col-5 row">
-      <FormControl variant="outlined" size="small" className={classes.formControl}>
-        <InputLabel ref={inputLabel} id="demo-simple-select-outlined-label">Civilité</InputLabel>
-        <Select value={genre} onChange={handleGenre} labelWidth={labelWidth} >
-          <MenuItem value="">
-            <em>Choisir</em>
-          </MenuItem>
-          <MenuItem value="M.">M.</MenuItem>
-          <MenuItem value="Mme">Mme</MenuItem>
-        </Select>
-      </FormControl>
-      <div className="col">
-        <TextField size="small" label="Prénom" variant="outlined" onChange={handlePrenom} />
-      </div>
-      <div className="col">
-        <TextField size="small" label="Nom" variant="outlined" onChange={handleNom} />
-      </div>
-    </div> 
-      <div>
-        <button className="btn btn-outline-info mt-3" type="submit" onClick={handleSubmit}>Afficher</button>
-      </div>
-      
+
+      <ValidatorForm>
+
+        <div className="col-5 row">
+          <FormControl variant="outlined" size="small" name="genre" className={classes.formControl}>
+            <InputLabel ref={inputLabel} id="demo-simple-select-outlined-label">Civilité</InputLabel>
+            <Select value={genre} onChange={handleGenre} labelWidth={labelWidth} >
+              <MenuItem value="">
+                <em>Choisir</em>
+              </MenuItem>
+              <MenuItem value="M.">M.</MenuItem>
+              <MenuItem value="Mme">Mme</MenuItem>
+            </Select>
+          </FormControl>
+          <div className="col">
+            <TextValidator size="small" label="Prénom" name="prenom" variant="outlined" onChange={handlePrenom}
+              validators={['required']} errorMessages={['Champ Obligatoire!']} />
+          </div>
+          <div className="col">
+            <TextField size="small" label="Nom" name="nom" variant="outlined" onChange={handleNom} />
+          </div>
+
+        </div>
+        <div>
+          <Button variant="outlined" color="primary" className="mt-3" type="submit" onClick={handleSubmit}>Afficher</Button>
+        </div>
+
+      </ValidatorForm>
 
     </div>
   );

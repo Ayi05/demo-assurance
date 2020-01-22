@@ -5,7 +5,6 @@ const InfoC = {
   genre: '',
   age: '',
   experience: '',
-  sinistres: '',
   tel: '',
   cp: '',
 };
