@@ -13,7 +13,7 @@ const experiences = ['- de 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
 const marques = ['Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda', 'Nissan'];
 
 const chevrolet = ['Blazer', 'Camaro', 'Cruze', 'Equinox', 'Silverado', 'Spark'];
-const ford = ['EcoSport', 'Escape', 'Explorer', 'F-150', 'Fusion', 'Mustang'];
+const ford = ['EcoSport', 'Escape', 'Explorer', 'F-150', 'Fiesta', 'Focus', 'Fusion', 'Mustang'];
 const honda = ['Accord', 'Civic', 'Civic Coupe', 'CR-V', 'HR-V'];
 const hyundai = ['Elantra', 'Elantra GT', 'Kona', 'Kona Electric', 'Palisade', 'Santa Fe', 'Sonata', 'Tucson'];
 const mazda = ['CX-3', 'CX-5', 'CX-9', 'Mazda3', 'Mazda6'];
@@ -118,258 +118,337 @@ class Basic extends React.Component {
 
         return (
             <div className="container mt-2 d-flex justify-content-center">
-                <div className="col-6 py-3">
-                    <ValidatorForm
-                        ref="form"
-                        onSubmit={this.handleSubmit}
-                        onError={errors => console.log(errors)}
-                    >
+                <div className="row">
+                    <div className="col-6 py-3">
+                        <ValidatorForm
+                            ref="form"
+                            onSubmit={this.handleSubmit}
+                            onError={errors => console.log(errors)}
+                        >
+                            {/* CONDUCTEUR */}
+                            <div className="border rounded px-4 my-4">
+                                <div className="my-3">
+                                    <h4 className="text-uppercase d-flex">
+                                        <i className="fas fa-user-circle fa-2x my-2 m-0 text-info mr-2"></i>
+                                        <span className="align-self-center">Conducteur</span>
+                                    </h4>
+                                </div>
+
+                                <div className="row form-group justify-content-start">
+
+                                    {/* Genre */}
+                                    <div className="col-3">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Genre"
+                                            // placeholder="M."
+                                            name="genre"
+                                            variant="outlined"
+                                            value={this.state.genre}
+                                            onChange={this.handleGenre}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}>
+                                            <MenuItem value="">
+                                                <em>Choisir</em>
+                                            </MenuItem>
+                                            <MenuItem value="M.">Homme</MenuItem>
+                                            <MenuItem value="Mme">Femme</MenuItem>
+                                        </SelectValidator>
+                                    </div>
+                                </div>
+
+                                <div className="row form-group justify-content-start">
+
+                                    {/* Prénom */}
+                                    <div className="col">
+                                        <TextValidator
+                                            className="col"
+                                            size="small"
+                                            label="Prénom"
+                                            placeholder="Prénom"
+                                            name="prenom"
+                                            variant="outlined"
+                                            value={this.state.prenom}
+                                            onChange={this.handlePrenom}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']} />
+                                    </div>
+
+                                    {/* Nom */}
+                                    <div className="col">
+                                        <TextValidator
+                                            className="col"
+                                            size="small"
+                                            label="Nom"
+                                            name="nom"
+                                            variant="outlined"
+                                            value={this.state.nom}
+                                            onChange={this.handleNom}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']} />
+                                    </div>
+                                </div>
+
+                                <div className="row form-group justify-content-start">
+
+                                    {/* Tranche d'Âge */}
+                                    <div className="col">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Tranche d'âge"
+                                            name="age"
+                                            variant="outlined"
+                                            value={this.state.age}
+                                            onChange={this.handleAge}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}
+                                        >
+                                            <MenuItem value="" className="text-primary">
+                                                Tranche d'âge
+                                        </MenuItem>
+                                            {ages.map(age => (
+                                                <MenuItem key={age} value={age}>
+                                                    {age}
+                                                </MenuItem>
+                                            ))}
+                                        </SelectValidator>
+                                    </div>
+
+                                    {/* Expérience de conduite */}
+                                    <div className="col">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Expérience "
+                                            name="experience"
+                                            variant="outlined"
+                                            value={this.state.experience}
+                                            onChange={this.handleExperience}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}
+                                        >
+                                            <MenuItem value="" className="text-primary">
+                                                Experience de Conduite
+                                            </MenuItem>
+                                            {experiences.map(experience => (
+                                                <MenuItem key={experience} value={experience}>
+                                                    {experience}
+                                                </MenuItem>
+                                            ))}
+                                        </SelectValidator>
+                                    </div>
+
+                                </div>
+
+                                <div className="row form-group justify-content-start">
+
+                                    <div className="col">
+                                        <TextValidator
+                                            className="col"
+                                            size="small"
+                                            name="codeP"
+                                            label="Code Postal"
+                                            variant="outlined"
+                                            value={this.state.codeP}
+                                            placeholder="A1B 2C3"
+                                            onChange={this.handleCodePostal}
+                                            validators={['required', 'matchRegexp:^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$']}
+                                            errorMessages={['Champ Obligatoire!', 'Format Valide: A1B 2C3']} />
+                                    </div>
+
+                                    <div className="col">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            {/* VÉHICULE */}
+                            <div className="border rounded px-4 my-4">
+                                <div className="my-3">
+                                    <h4 className="text-uppercase d-flex">
+                                        <i className="fas fa-user-circle fa-2x my-2 m-0 text-info mr-2"></i>
+                                        <span className="align-self-center">Véhicule</span>
+                                    </h4>
+                                </div>
+
+                                <div className="row form-group justify-content-start">
+
+                                    {/* Marque */}
+                                    <div className="col">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Marque"
+                                            name="marque"
+                                            variant="outlined"
+                                            value={this.state.marque}
+                                            onChange={this.handleMarques}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}
+                                        >
+                                            <MenuItem value="" className="text-primary">
+                                                Marque
+                                        </MenuItem>
+                                            {marques.map(marque => (
+                                                <MenuItem key={marque} value={marque}>
+                                                    {marque}
+                                                </MenuItem>
+                                            ))}
+                                        </SelectValidator>
+                                    </div>
+
+                                    {/* Expérience de conduite */}
+                                    <div className="col">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Modele"
+                                            name="modele"
+                                            variant="outlined"
+                                            value={this.state.modele}
+                                            onChange={this.handleModele}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}
+                                        >
+                                            <MenuItem value="" className="text-primary">
+                                                Modele
+                                        </MenuItem>
+                                            {this.state.modeles.map(modele => (
+                                                <MenuItem key={modele} value={modele}>
+                                                    {modele}
+                                                </MenuItem>
+                                            ))}
+                                        </SelectValidator>
+                                    </div>
+
+                                </div>
+
+                                <div className="row form-group justify-content-start">
+
+                                    {/* Année */}
+                                    <div className="col">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Année"
+                                            name="annee"
+                                            variant="outlined"
+                                            value={this.state.annee}
+                                            onChange={this.handleAnnee}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}
+                                        >
+                                            <MenuItem value="" className="text-primary">
+                                                Année
+                                        </MenuItem>
+                                            {annees.map(annee => (
+                                                <MenuItem key={annee} value={annee}>
+                                                    {annee}
+                                                </MenuItem>
+                                            ))}
+                                        </SelectValidator>
+                                    </div>
+
+                                    {/* Expérience de conduite */}
+                                    <div className="col">
+                                        <SelectValidator
+                                            className="col"
+                                            size="small"
+                                            label="Km/Année"
+                                            name="kma"
+                                            variant="outlined"
+                                            value={this.state.kma}
+                                            onChange={this.handleKma}
+                                            validators={['required']} errorMessages={['Champ Obligatoire!']}
+                                        >
+                                            <MenuItem value="" className="text-primary">
+                                                Km/Année
+                                        </MenuItem>
+                                            {kmas.map(kma => (
+                                                <MenuItem key={kma} value={kma}>
+                                                    {kma}
+                                                </MenuItem>
+                                            ))}
+                                        </SelectValidator>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            {/* SOUMETTRE */}
+                            <div className="mt-4">
+                                <Button variant="outlined" color="primary" type="submit">SOUMETTRE</Button>
+                                {/* <button className="btn btn-outline-info" type="submit">Afficher</button> */}
+                            </div>
+
+                        </ValidatorForm>
+
+                    </div>
+
+                    <div className="col-6 py-3">
                         <div className="border rounded px-4 my-4">
                             <div className="my-3">
-                                <h4 className="text-uppercase d-flex">
-                                    <i className="fas fa-user-circle fa-2x my-2 m-0 text-info mr-2"></i>
-                                    <span className="align-self-center">Conducteur</span>
+                                <h4 className="text-uppercase. d-flex justify-content-center">
+                                    <span className="align-self-center.">Votre Soumission</span>
                                 </h4>
                             </div>
 
-                            <div className="row form-group justify-content-start">
-
-                                {/* Civilité */}
-                                {/* <div className="col">
-                                    <SelectValidator
-                                        className="col-3"
-                                        size="small"
-                                        label="Civilité"
-                                        placeholder="M."
-                                        name="genre"
-                                        variant="outlined"
-                                        value={this.state.genre}
-                                        onChange={this.handleGenre}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}>
-                                        <MenuItem value="">
-                                            <em>Choisir</em>
-                                        </MenuItem>
-                                        <MenuItem value="M.">M.</MenuItem>
-                                        <MenuItem value="Mme">Mme</MenuItem>
-                                    </SelectValidator>
-                                </div> */}
-                            </div>
-
-                            <div className="row form-group justify-content-start">
-
-                                {/* Prénom */}
-                                <div className="col">
-                                    <TextValidator
-                                        size="small"
-                                        label="Prénom"
-                                        placeholder="Prénom"
-                                        name="prenom"
-                                        variant="outlined"
-                                        value={this.state.prenom}
-                                        onChange={this.handlePrenom}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']} />
-                                </div>
-
-                                {/* Nom */}
-                                <div className="col">
-                                    <TextValidator
-                                        size="small"
-                                        label="Nom"
-                                        name="nom"
-                                        variant="outlined"
-                                        value={this.state.nom}
-                                        onChange={this.handleNom}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']} />
-                                </div>
-                            </div>
-
-                            <div className="row form-group justify-content-start">
-
-                                {/* Tranche d'Âge */}
-                                <div className="col">
-                                    <SelectValidator
-                                        className="col"
-                                        size="small"
-                                        label="Tranche d'âge"
-                                        name="age"
-                                        variant="outlined"
-                                        value={this.state.age}
-                                        onChange={this.handleAge}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}
-                                    >
-                                        <MenuItem value="" className="text-primary">
-                                            Tranche d'âge
-                                        </MenuItem>
-                                        {ages.map(age => (
-                                            <MenuItem key={age} value={age}>
-                                                {age}
-                                            </MenuItem>
-                                        ))}
-                                    </SelectValidator>
-                                </div>
-
-                                {/* Expérience de conduite */}
-                                <div className="col">
-                                    <SelectValidator
-                                        className="col"
-                                        size="small"
-                                        label="Expérience de conduite"
-                                        name="experience"
-                                        variant="outlined"
-                                        value={this.state.experience}
-                                        onChange={this.handleExperience}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}
-                                    >
-                                        <MenuItem value="" className="text-primary">
-                                            Experience de Conduite
-                                        </MenuItem>
-                                        {experiences.map(experience => (
-                                            <MenuItem key={experience} value={experience}>
-                                                {experience}
-                                            </MenuItem>
-                                        ))}
-                                    </SelectValidator>
+                            <div class="card bg-light">
+                                <div className="card-header">
+                                    <h6 className="">{this.state.genre + ' ' + this.state.prenom + ' ' + this.state.nom}</h6>
                                 </div>
 
                             </div>
-
-                            <div className="row form-group justify-content-start">
-
-                                <div className="col">
-                                    <TextValidator
-                                        size="small"
-                                        name="codeP"
-                                        label="Code Postal"
-                                        variant="outlined"
-                                        value={this.state.codeP}
-                                        placeholder="A1B C2D"
-                                        onChange={this.handleCodePostal}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']} />
+                            <div className="card. bg-light border-light my-3">
+                                <div class="card-header">
+                                    <h5><ins>{this.state.marque + ' ' + this.state.modele + ' ' + this.state.annee}</ins></h5>
                                 </div>
+                                <div class="card-body">
+                                    <div>
+                                        <p>
+                                            <span className="h3">
+                                                <strong>110.42 $</strong><span className="text-muted small">/mois</span>
+                                            </span>
+                                            <span className="text-muted"> (ou 1325.00 $/an).</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card. bg-light border-light my-3">
 
+                                <div class="card-header">
+                                    <h4>
+                                        {/* {this.state.marque + ' ' + this.state.modele + ' ' + this.state.annee}
+                                        <br /> */}
+                                        Couverture
+                                    </h4>
+                                </div>
+                                <div class="card-body row.">
+
+                                    <div className="col">
+                                        <p>
+                                            <span>Responsablité Civile :</span><br />
+                                            <span><strong>1 Million</strong></span>
+                                        </p>
+                                    </div>
+
+                                    <div className="col">
+                                        <p>
+                                            <span>Risques de Collision et de Renversement : </span><br />
+                                            <span><strong>Franchise 500 $</strong></span>
+                                        </p>
+                                    </div>
+                                    <div className="col">
+                                        <p>
+                                            <span>Tous Risques sauf Collision et Renversement : </span><br />
+                                            <span><strong>Franchise 250 $</strong></span>
+                                        </p>
+                                    </div>
+
+                                </div>
                             </div>
 
                         </div>
-
-                        <div className="border rounded px-4 my-4">
-                            <div className="my-3">
-                                <h4 className="text-uppercase d-flex">
-                                    <i className="fas fa-user-circle fa-2x my-2 m-0 text-info mr-2"></i>
-                                    <span className="align-self-center">Véhicule</span>
-                                </h4>
-                            </div>
-
-                            <div className="row form-group justify-content-start">
-
-                                {/* Marque */}
-                                <div className="col">
-                                    <SelectValidator
-                                        className="col"
-                                        size="small"
-                                        label="Marque"
-                                        name="marque"
-                                        variant="outlined"
-                                        value={this.state.marque}
-                                        onChange={this.handleMarques}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}
-                                    >
-                                        <MenuItem value="" className="text-primary">
-                                            Marque
-                                        </MenuItem>
-                                        {marques.map(marque => (
-                                            <MenuItem key={marque} value={marque}>
-                                                {marque}
-                                            </MenuItem>
-                                        ))}
-                                    </SelectValidator>
-                                </div>
-
-                                {/* Expérience de conduite */}
-                                <div className="col">
-                                    <SelectValidator
-                                        className="col"
-                                        size="small"
-                                        label="Modele"
-                                        name="modele"
-                                        variant="outlined"
-                                        value={this.state.modele}
-                                        onChange={this.handleModele}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}
-                                    >
-                                        <MenuItem value="" className="text-primary">
-                                            Modele
-                                        </MenuItem>
-                                        {this.state.modeles.map(modele => (
-                                            <MenuItem key={modele} value={modele}>
-                                                {modele}
-                                            </MenuItem>
-                                        ))}
-                                    </SelectValidator>
-                                </div>
-
-                            </div>
-
-                            <div className="row form-group justify-content-start">
-
-                                {/* Année */}
-                                <div className="col">
-                                    <SelectValidator
-                                        className="col"
-                                        size="small"
-                                        label="Année"
-                                        name="annee"
-                                        variant="outlined"
-                                        value={this.state.annee}
-                                        onChange={this.handleAnnee}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}
-                                    >
-                                        <MenuItem value="" className="text-primary">
-                                            Année
-                                        </MenuItem>
-                                        {annees.map(annee => (
-                                            <MenuItem key={annee} value={annee}>
-                                                {annee}
-                                            </MenuItem>
-                                        ))}
-                                    </SelectValidator>
-                                </div>
-
-                                {/* Expérience de conduite */}
-                                <div className="col">
-                                    <SelectValidator
-                                        className="col"
-                                        size="small"
-                                        label="Km/Année"
-                                        name="kma"
-                                        variant="outlined"
-                                        value={this.state.kma}
-                                        onChange={this.handleKma}
-                                        validators={['required']} errorMessages={['Champ Obligatoire!']}
-                                    >
-                                        <MenuItem value="" className="text-primary">
-                                            Km/Année
-                                        </MenuItem>
-                                        {kmas.map(kma => (
-                                            <MenuItem key={kma} value={kma}>
-                                                {kma}
-                                            </MenuItem>
-                                        ))}
-                                    </SelectValidator>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div className="mt-4">
-                            <Button variant="outlined" color="primary" type="submit">Afficher</Button>
-                            {/* <button className="btn btn-outline-info" type="submit">Afficher</button> */}
-                        </div>
-
-                    </ValidatorForm>
-
+                    </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
