@@ -30,6 +30,7 @@ class Basic extends React.Component {
         genre: '',
         prenom: '',
         nom: '',
+        age: '',
         experience: '',
         codeP: '',
         marque: '',
@@ -38,6 +39,7 @@ class Basic extends React.Component {
         annee: '',
         kma: '',
         classResult: 'col py-3 d-none',
+        classForm: 'col py-3',
 
     }
 
@@ -46,7 +48,7 @@ class Basic extends React.Component {
     // HandleSubmit
     handleSubmit = () => {
         // Affichage des données
-        this.setState({ classResult: 'col py-3'})
+        this.setState({ classResult: 'col py-3', classForm: 'col py-3 d-none'})
         // alert(this.state.genre + ' ' + this.state.prenom + ' ' + this.state.nom +
         //     '\nTranche d\'Âge : ' + this.state.age +
         //     '\nExpérience de Conduite : ' + this.state.experience +
@@ -55,6 +57,23 @@ class Basic extends React.Component {
         //     this.state.marque + ' ' + this.state.modele + ' ' + this.state.annee +
         //     '\n' + this.state.kma + ' par année!'
         // );
+    }
+    handleReset = () => {
+        this.setState({
+            genre: '',
+            prenom: '',
+            nom: '',
+            age: '',
+            experience: '',
+            codeP: '',
+            marque: '',
+            modeles: [],
+            modele: '',
+            annee: '',
+            kma: '',
+            classResult: 'col py-3 d-none',
+            classForm: 'col py-3',
+         })
     }
 
     // HandleChange Zone
@@ -124,7 +143,7 @@ class Basic extends React.Component {
         return (
             <div className="container mt-2 d-flex justify-content-center">
                 <div className="row">
-                    <div className="col py-3">
+                    <div className={this.state.classForm}>
                         <ValidatorForm
                             ref="form"
                             onSubmit={this.handleSubmit}
@@ -449,6 +468,13 @@ class Basic extends React.Component {
                             </div>
 
                         </div>
+
+                        {/* SOUMETTRE */}
+                        <div className="mt-4">
+                            <Button variant="outlined" color="primary" type="reset" onClick={this.handleReset}>RECOMMENCER</Button>
+                            {/* <button className="btn btn-outline-info" type="submit">Afficher</button> */}
+                        </div>
+
                     </div>
                 </div>
             </div >
