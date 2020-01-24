@@ -20,7 +20,9 @@ const mazda = ['CX-3', 'CX-5', 'CX-9', 'Mazda3', 'Mazda6'];
 const nissan = ['Altima', 'Kicks', 'Micra', 'Murano', 'Quashqai', 'Rogue', 'Versa'];
 
 const annees = ['2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010'];
-const kmas = ['moins de 10 000 km', '10 001 à 20 000 km', '20 001 à 35 000 km', 'plus de 35 000 km']
+const kmas = ['moins de 10 000 km', '10 001 à 20 000 km', '20 001 à 35 000 km', 'plus de 35 000 km'];
+
+// let classResult = "col py-3 d-none";
 
 class Basic extends React.Component {
 
@@ -35,21 +37,24 @@ class Basic extends React.Component {
         modele: '',
         annee: '',
         kma: '',
+        classResult: 'col py-3 d-none',
 
     }
 
+    
+
     // HandleSubmit
     handleSubmit = () => {
-        // Affichage des données du formulaire
-        alert(this.state.genre + ' ' + this.state.prenom + ' ' + this.state.nom +
-            '\nTranche d\'Âge : ' + this.state.age +
-            '\nExpérience de Conduite : ' + this.state.experience +
-            '\nCode Postal : ' + this.state.codeP +
-            '\n\n' +
-            this.state.marque + ' ' + this.state.modele + ' ' + this.state.annee +
-            '\n' + this.state.kma + ' par année!'
-
-        );
+        // Affichage des données
+        this.setState({ classResult: 'col py-3'})
+        // alert(this.state.genre + ' ' + this.state.prenom + ' ' + this.state.nom +
+        //     '\nTranche d\'Âge : ' + this.state.age +
+        //     '\nExpérience de Conduite : ' + this.state.experience +
+        //     '\nCode Postal : ' + this.state.codeP +
+        //     '\n\n' +
+        //     this.state.marque + ' ' + this.state.modele + ' ' + this.state.annee +
+        //     '\n' + this.state.kma + ' par année!'
+        // );
     }
 
     // HandleChange Zone
@@ -119,7 +124,7 @@ class Basic extends React.Component {
         return (
             <div className="container mt-2 d-flex justify-content-center">
                 <div className="row">
-                    <div className="col-6 py-3">
+                    <div className="col py-3">
                         <ValidatorForm
                             ref="form"
                             onSubmit={this.handleSubmit}
@@ -382,7 +387,7 @@ class Basic extends React.Component {
 
                     </div>
 
-                    <div className="col-6 py-3">
+                    <div className={this.state.classResult}>
                         <div className="border rounded px-4 my-4">
                             <div className="my-3">
                                 <h4 className="text-uppercase. d-flex justify-content-center">
@@ -415,8 +420,6 @@ class Basic extends React.Component {
 
                                 <div class="card-header">
                                     <h4>
-                                        {/* {this.state.marque + ' ' + this.state.modele + ' ' + this.state.annee}
-                                        <br /> */}
                                         Couverture
                                     </h4>
                                 </div>
