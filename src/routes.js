@@ -2,10 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Conditions from './components/Conditions';
-import Soumission from './components/Soumission';
-import TestForm from './components/TestForm';
-import Test from './components/Test';
-import Basic from './components/Formika';
+import Formulaire from './components/Formulaire';
 
 
 export default function MainRouter() {
@@ -13,10 +10,7 @@ export default function MainRouter() {
         <Router>
             <Switch>
                 <Route exact path="/" component={Conditions} />
-                <Route path="/Soumission" component={Soumission} />
-                <Route path="/TestForm" component={TestForm} />
-                <Route path="/Test" component={Test} />
-                <Route path="/Formika" component={Basic} />
+                <Route path="/Soumission" component={Formulaire} />
                 {/* <Route component={Erreur} /> */}
             </Switch>
         </Router>

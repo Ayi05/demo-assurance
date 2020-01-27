@@ -8,31 +8,13 @@ const Conditions = props => {
     <div className="container mt-5 d-flex justify-content-center">
       <div className="col-6 border rounded p-5">
         <div className="row justify-content-center">
-          <h3>Conditions d'utilisation</h3>
+          <h3>Conditions d'Utilisation</h3>
           <p className="text-justify">{condMessage}</p>
         </div>
         <div className="row justify-content-center">
-          {/* <button type="button" class="btn btn-outline-secondary btn-sm mx-2">
-            Refuser
-          </button> */}
-          <a href="/TestForm">
-            <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
-              TestForm
-            </button>
-          </a>
-          <a href="/Test">
-            <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
-              Test
-            </button>
-          </a>
           <a href="/Soumission">
             <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
-              Soumission
-            </button>
-          </a>
-          <a href="/Formika">
-            <button type="button" class="btn btn-info btn-sm mx-2 text-uppercase">
-              Formik
+              Continuer
             </button>
           </a>
         </div>
