@@ -2,8 +2,8 @@ import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import { TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 
-const ages = ['15 à 20', '21 à 25', '26 à 30', '31 à 35', '36 à 40', '41 à 45', '46 à 50', '51 à 55', '56 à 60', '61 à 65', '66 et plus'];
-const experiences = ['- de 24 Mois', '2 à 5 ans', '6 à 9 ans', '10 ans +'];
+const ages = ['16 à 20', '21 à 24', '25 à 29', '30 à 44', '45 à 64', '65 à 74', '75 et plus'];
+const experiences = ['0', '1', '2', '3 et +'];
 
 
 const Conducteur = (props) =>{
@@ -105,7 +105,7 @@ const Conducteur = (props) =>{
                                         <SelectValidator
                                             className="col"
                                             size="small"
-                                            label="Expérience "
+                                            label="Sinistres en 3 ans"
                                             name="experience"
                                             variant="outlined"
                                             value={props.experience}
@@ -113,7 +113,7 @@ const Conducteur = (props) =>{
                                             validators={['required']} errorMessages={['Champ Obligatoire!']}
                                         >
                                             <MenuItem value="" className="text-primary">
-                                                Experience de Conduite
+                                                Sinistres des 3 dernières années
                                             </MenuItem>
                                             {experiences.map(experience => (
                                                 <MenuItem key={experience} value={experience}>

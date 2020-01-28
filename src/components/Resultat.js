@@ -1,7 +1,14 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import calculPrime from './Calculus';
+
+
 
 const Resultat = (props) =>{
+
+    let primeA = calculPrime(props.age, props.genre, props.experience);
+    let primeM = (primeA/12).toFixed(2);
+
 
   return (
 
@@ -27,9 +34,9 @@ const Resultat = (props) =>{
                                     <div>
                                         <p>
                                             <span className="h3">
-                                                <strong>110.42 $</strong><span className="text-muted small">/mois</span>
+                                                <strong>{primeM} $</strong><span className="text-muted small">/mois</span>
                                             </span>
-                                            <span className="text-muted"> (ou 1325.00 $/an).</span>
+                                            <span className="text-muted">  (ou {primeA} $/an).</span>
                                         </p>
                                     </div>
                                 </div>

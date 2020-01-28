@@ -33,7 +33,7 @@ class Formulaire extends React.Component {
         modele: '',
         annee: '',
         kma: '',
-        classResult: 'col py-3 d-none',
+        classResult: 'col py-3 d-none.',
         classForm: 'col py-3',
 
     }
@@ -43,7 +43,7 @@ class Formulaire extends React.Component {
     // HandleSubmit
     handleSubmit = () => {
         // Affichage des données
-        this.setState({ classResult: 'col py-3', classForm: 'col py-3 d-none'})
+        this.setState({ classResult: 'col py-3', classForm: 'col py-3 d-none.'})
         // alert(this.state.genre + ' ' + this.state.prenom + ' ' + this.state.nom +
         //     '\nTranche d\'Âge : ' + this.state.age +
         //     '\nExpérience de Conduite : ' + this.state.experience +
@@ -66,7 +66,7 @@ class Formulaire extends React.Component {
             modele: '',
             annee: '',
             kma: '',
-            classResult: 'col py-3 d-none',
+            classResult: 'col py-3 d-none.',
             classForm: 'col py-3',
          })
     }
@@ -188,7 +188,9 @@ class Formulaire extends React.Component {
                     classResult={this.state.classResult}
                     genre={this.state.genre} 
                     prenom={this.state.prenom} 
-                    nom={this.state.nom} 
+                    nom={this.state.nom}
+                    age={this.state.age}
+                    experience={this.state.experience}
                     marque={this.state.marque}
                     modele={this.state.modele}
                     annee={this.state.annee}
