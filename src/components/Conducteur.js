@@ -20,10 +20,10 @@ const Conducteur = (props) => {
                 </h4>
             </div>
 
-            <div className="row form-group justify-content-start">
+            <div className="row form-group. justify-content-start">
 
                 {/* Genre */}
-                <div className="col-3">
+                <div className="col-5 col-md-3 my-2">
                     <SelectValidator
                         className="col"
                         size="small"
@@ -42,10 +42,10 @@ const Conducteur = (props) => {
                 </div>
             </div>
 
-            <div className="row form-group justify-content-start">
+            <div className="row form-group. justify-content-start">
 
                 {/* Prénom */}
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <TextValidator
                         className="col"
                         size="small"
@@ -59,7 +59,7 @@ const Conducteur = (props) => {
                 </div>
 
                 {/* Nom */}
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <TextValidator
                         className="col"
                         size="small"
@@ -72,10 +72,10 @@ const Conducteur = (props) => {
                 </div>
             </div>
 
-            <div className="row form-group justify-content-start">
+            <div className="row form-group. justify-content-start">
 
                 {/* Tranche d'Âge */}
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <SelectValidator
                         className="col"
                         size="small"
@@ -98,7 +98,7 @@ const Conducteur = (props) => {
                 </div>
 
                 {/* Expérience de conduite */}
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <SelectValidator
                         className="col"
                         size="small"
@@ -124,7 +124,7 @@ const Conducteur = (props) => {
 
             <div className="row form-group justify-content-start">
                 {/* Code Postal */}
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <TextValidator
                         className="col"
                         size="small"
@@ -138,7 +138,7 @@ const Conducteur = (props) => {
                         errorMessages={['Champ Obligatoire!', 'Format Valide: A1B 2C3']} />
                 </div>
 
-                <div className="col">
+                <div className="col-10 col-md">
 
                 </div>
 

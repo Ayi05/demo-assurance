@@ -16,9 +16,9 @@ const Vehicule = (props) => {
                 </h4>
             </div>
 
-            <div className="row form-group justify-content-start">
+            <div className="row form-group. justify-content-start">
 
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <SelectValidator
                         className="col"
                         size="small"
@@ -40,7 +40,7 @@ const Vehicule = (props) => {
                     </SelectValidator>
                 </div>
 
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <SelectValidator
                         className="col"
                         size="small"
@@ -64,9 +64,9 @@ const Vehicule = (props) => {
 
             </div>
 
-            <div className="row form-group justify-content-start">
+            <div className="row form-group. justify-content-start">
 
-                <div className="col">
+                <div className="col-10 col-md my-2">
                     <SelectValidator
                         className="col"
                         size="small"
@@ -88,7 +88,7 @@ const Vehicule = (props) => {
                     </SelectValidator>
                 </div>
 
-                <div className="col">
+                <div className="col-10 col-md mt-2 mb-4">
                     <SelectValidator
                         className="col"
                         size="small"

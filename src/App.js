@@ -1,10 +1,11 @@
 import React from "react";
+import Central from './components/Central'
 
 const App = () => {
   return (
-    <div className="container">
-
-    </div>
+    <>
+      <Central></Central>
+    </>
   );
 };
 
