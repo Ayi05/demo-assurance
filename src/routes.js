@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
 import Conditions from './components/Conditions';
-import Formulaire from './components/Formulaire';
+import Central from './components/Central';
 
 
 export default function MainRouter() {
@@ -10,7 +9,7 @@ export default function MainRouter() {
         <Router>
             <Switch>
                 <Route exact path="/" component={Conditions} />
-                <Route path="/Soumission" component={Formulaire} />
+                <Route path="/Soumission" component={Central} />
                 {/* <Route component={Erreur} /> */}
             </Switch>
         </Router>
