@@ -1,6 +1,7 @@
 import React from 'react';
 import Resultat from './Resultat';
 import Formulaire from './Formulaire';
+import Navbar from './Navbar';
 
 const marques = ['Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Mazda', 'Nissan'];
 
@@ -120,58 +121,60 @@ export default class Central extends React.Component {
     render() {
 
         return (
+            <>
+                <Navbar></Navbar>
+                <div className="container">
 
-            <div className="container">
+                    <div className="mt-2 d-flex justify-content-center">
 
-                <div className="mt-2 d-flex justify-content-center">
+                        <div className={this.state.classForm}>
+                            <Formulaire
+                                ref="form"
+                                handleSubmit={this.handleSubmit}
+                                genre={this.state.genre}
+                                prenom={this.state.prenom}
+                                nom={this.state.nom}
+                                age={this.state.age}
+                                codeP={this.state.codeP}
+                                experience={this.state.experience}
+                                handleGenre={this.handleGenre}
+                                handlePrenom={this.handlePrenom}
+                                handleNom={this.handleNom}
+                                handleAge={this.handleAge}
+                                handleExperience={this.handleExperience}
+                                handleCodePostal={this.handleCodePostal}
+                                marques={marques}
+                                annees={annees}
+                                kmas={kmas}
+                                marque={this.state.marque}
+                                modeles={this.state.modeles}
+                                modele={this.state.modele}
+                                annee={this.state.annee}
+                                kma={this.state.kma}
+                                handleMarque={this.handleMarque}
+                                handleModele={this.handleModele}
+                                handleAnnee={this.handleAnnee}
+                                handleKma={this.handleKma}
+                            />
+                        </div>
 
-                    <div className={this.state.classForm}>
-                        <Formulaire
-                            ref="form"
-                            handleSubmit={this.handleSubmit}
-                            genre={this.state.genre}
-                            prenom={this.state.prenom}
-                            nom={this.state.nom}
-                            age={this.state.age}
-                            codeP={this.state.codeP}
-                            experience={this.state.experience}
-                            handleGenre={this.handleGenre}
-                            handlePrenom={this.handlePrenom}
-                            handleNom={this.handleNom}
-                            handleAge={this.handleAge}
-                            handleExperience={this.handleExperience}
-                            handleCodePostal={this.handleCodePostal}
-                            marques={marques}
-                            annees={annees}
-                            kmas={kmas}
-                            marque={this.state.marque}
-                            modeles={this.state.modeles}
-                            modele={this.state.modele}
-                            annee={this.state.annee}
-                            kma={this.state.kma}
-                            handleMarque={this.handleMarque}
-                            handleModele={this.handleModele}
-                            handleAnnee={this.handleAnnee}
-                            handleKma={this.handleKma}
-                        />
+                        <div className={this.state.classResult}>
+                            <Resultat
+                                genre={this.state.genre}
+                                prenom={this.state.prenom}
+                                nom={this.state.nom}
+                                age={this.state.age}
+                                experience={this.state.experience}
+                                marque={this.state.marque}
+                                modele={this.state.modele}
+                                annee={this.state.annee}
+                                handleReset={this.handleReset}
+                            />
+                        </div>
+
                     </div>
-
-                    <div className={this.state.classResult}>
-                        <Resultat
-                            genre={this.state.genre}
-                            prenom={this.state.prenom}
-                            nom={this.state.nom}
-                            age={this.state.age}
-                            experience={this.state.experience}
-                            marque={this.state.marque}
-                            modele={this.state.modele}
-                            annee={this.state.annee}
-                            handleReset={this.handleReset}
-                        />
-                    </div>
-
                 </div>
-            </div>
+            </>
         );
     }
 }

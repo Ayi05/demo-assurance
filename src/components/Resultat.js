@@ -14,20 +14,20 @@ const Resultat = (props) => {
     return (
 
         <>
-            <div className="border rounded px-4 my-4">
+            <div className="card border-info rounded px-4 my-4 shadow">
                 <div className="my-3">
                     <h4 className="text-uppercase. d-flex justify-content-center">
                         <span className="align-self-center.">Votre Soumission</span>
                     </h4>
                 </div>
 
-                <div class="card bg-light">
+                <div class="card bg-info text-white">
                     <div className="card-header">
                         <h6 className="">{props.genre + ' ' + props.prenom + ' ' + props.nom}</h6>
                     </div>
 
                 </div>
-                <div className="card. bg-light border-light my-3">
+                <div className="card bg-light border-info my-3">
                     <div class="card-header">
                         <h5><ins>{props.marque + ' ' + props.modele + ' ' + props.annee}</ins></h5>
                     </div>
@@ -42,12 +42,12 @@ const Resultat = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="card. bg-light border-light my-3">
+                <div className="card bg-light border-info my-3">
 
                     <div class="card-header">
                         <h4>
                             Couverture
-                                    </h4>
+                        </h4>
                     </div>
                     <div class="card-body row.">
 

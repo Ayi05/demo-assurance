@@ -9,7 +9,7 @@ const Formulaire = (props) => {
 
     return (
 
-        <div className="container mt-2 d-flex justify-content-center">
+        <div className="container d-flex justify-content-center">
 
             <ValidatorForm
                 // ref="form"
