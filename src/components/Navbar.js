@@ -13,7 +13,7 @@ const Navbar = props => {
         </a>
 
         <div class="d-flex justify-content-end">
-          <h3 class="d-inline"><small class="text-sm-left text-info font-weight-bold mx-1">Demo Assurance</small></h3>
+          <h3 class="d-inline"><small class="text-sm-left text-info font-weight-bold mx-1">Demo-Assurance</small></h3>
         </div>
 
       </div>
